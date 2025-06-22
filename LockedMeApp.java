@@ -69,5 +69,76 @@ public class LockedMeApp {
         System.out.println();
     }
   
+    private static void showBusinessOptions(Scanner sc) {
+        boolean backToMain = false;
+        while (!backToMain) {
+            System.out.println("\nBusiness Menu:");
+            System.out.println("1. Add file");
+            System.out.println("2. Delete file");
+            System.out.println("3. Search file");
+            System.out.println("4. Back to Main Menu\nYour choice: ");
+            String choice = sc.nextLine().trim();
 
+            switch (choice) {
+                case "1":
+                    addFile(sc);
+                    break;
+                case "2":
+                    deleteFile(sc);
+                    break;
+                case "3":
+                    searchFile(sc);
+                    break;
+                case "4":
+                    backToMain = true;
+                    break;
+                default:
+                    System.out.println("\n⚠ Invalid option, please try again.");
+                    break;
+            }
+        }
+    }
+
+    private static void addFile(Scanner sc) {
+        System.out.print("\nEnter file name to add: ");
+        String fileName = sc.nextLine().trim();
+        File file = new File(ROOT_DIR, fileName);
+
+        try {
+            if (file.exists()) {
+                System.out.println("\n⚠ File already exists.");
+            } else {
+                file.createNewFile();
+                System.out.println("\n✅ File successfully added.");
+            }
+        } catch (IOException e) {
+            System.out.println("\n❌ Error creating file: " + e.getMessage());
+        }
+    }
+
+    private static void deleteFile(Scanner sc) {
+        System.out.print("\nEnter file name to delete (case-sensitive): ");
+        String fileName = sc.nextLine().trim();
+        File file = new File(ROOT_DIR, fileName);
+
+        if (file.exists()) {
+            file.delete();
+            System.out.println("\n✅ File successfully deleted.");
+        } else {
+            System.out.println("\n❌ FNF (File not found)");
+        }
+    }
+
+    private static void searchFile(Scanner sc) {
+        System.out.print("\nEnter file name to search (case-sensitive): ");
+        String fileName = sc.nextLine().trim();
+        File file = new File(ROOT_DIR, fileName);
+
+        if (file.exists()) {
+            System.out.println("\n✅ File found.");
+        } else {
+            System.out.println("\n❌ FNF (File not found)");
+        }
+    }
+}
     
