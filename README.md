@@ -8,10 +8,10 @@ LockedMe.com is a prototype file management application designed to list, add, d
 
 ✨ Features
 
-✅ List all files in ascending order
-✅ Add a new file to the directory
-✅ Delete an existing file with validation and confirmation
-✅ Search for a file (with case sensitivity enabled)
-✅ Navigate back to the main menu
-✅ Graceful exit without abrupt termination
+✅ List all files in ascending order <br>
+✅ Add a new file to the directory <br>
+✅ Delete an existing file with validation and confirmation <br>
+✅ Search for a file (with case sensitivity enabled) <br>
+✅ Navigate back to the main menu <br>
+✅ Graceful exit without abrupt termination <br>
 
