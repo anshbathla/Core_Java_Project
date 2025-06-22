@@ -54,6 +54,20 @@ public class LockedMeApp {
         System.out.println("3. Exit\nYour choice: ");
     }
 
+    private static void listFiles() {
+        File directory = new File(ROOT_DIR);
+        String[] files = directory.list();
+        if (files == null || files.length == 0) {
+            System.out.println("\n(No files found)\n");
+            return;
+        }
+
+        List<String> fileList = new ArrayList<>(Arrays.asList(files));
+        Collections.sort(fileList);
+        System.out.println("\nFiles in ascending order:");
+        fileList.forEach(f -> System.out.println("- " + f));
+        System.out.println();
+    }
   
 
     
